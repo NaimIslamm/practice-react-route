@@ -6,22 +6,26 @@ import { Link } from "react-router-dom";
 const Post = ({ post }) => {
   const { id, name } = post;
   const navigate = useNavigate();
+
   const handleGoBack = () => {
     navigate(-1);
   };
   const handleseedetails = () => {
     navigate(`/Post/${id}`);
   };
+
+  const handlegoback = () => {
+    navigate("/");
+  };
+
   return (
     <div className="post-main">
-      <h2>{id}</h2>
-      <h3>{name}</h3>
+      <h2>No:{id}</h2>
+      <h3>Name:{name}</h3>
       <div className="button-container">
         <button onClick={handleseedetails}>See Details</button>
         <button onClick={handleGoBack}>Go Back</button>
-        <Link to={"/"}>
-          <button>Go Home</button>
-        </Link>
+        <button onClick={handlegoback}>Go Home</button>
       </div>
     </div>
   );
